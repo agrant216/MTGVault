@@ -1,0 +1,24 @@
+{
+  "name": "mtg_vault",
+  "version": "1.0.0",
+  "description": "A place to store and organize magic cards",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrant216/MTGVault.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agrant216/MTGVault/issues"
+  },
+  "homepage": "https://github.com/agrant216/MTGVault#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.4"
+  }
+}
