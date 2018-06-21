@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');  
-var InfoCardSchema = new mongoose.Schema({  
+var DetailCardSchema = new mongoose.Schema({  
   layout: String,
   name: String,
   manaCost: String,
@@ -14,5 +14,5 @@ var InfoCardSchema = new mongoose.Schema({
   imageName:String,
   colorIdentity:Array
 });
-mongoose.model('InfoCard', InfoCardSchema);
-module.exports = mongoose.model('InfoCard');
+mongoose.model('DetailCard', DetailCardSchema);
+module.exports = mongoose.model('DetailCard');
