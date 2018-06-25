@@ -1,6 +1,9 @@
+//import { request } from 'http';
+
 var express = require('express');
 var app = express();
 var db = require('./db');
+var mongoose = require('mongoose');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -15,7 +18,12 @@ router.get('/', function(req, res) {
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', router);
+//mongoose.connection.once('open',function() {
+    app.use('/api', router);
+
+    var InventoryCardController = require('./models/InventoryCard/InventoryCardController');
+    app.use('/api/cards',InventoryCardController);
+//});
 
 
 module.exports = app;
