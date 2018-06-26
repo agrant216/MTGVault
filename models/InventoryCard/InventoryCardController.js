@@ -11,7 +11,7 @@ var InventoryCard = require('./InventoryCard');
 router.post('/add', function(req,res) {
     var bulk = InventoryCard.collection.initializeUnorderedBulkOp();
     req.body.forEach(item => {
-        bulk.find({Name:item.name,GatherID:item['External ID']})
+        bulk.find({Name:item.name,GathererID:item['External ID']})
         .upsert()
         .updateOne({
             $set: {
@@ -20,7 +20,7 @@ router.post('/add', function(req,res) {
                 GathererID : item['External ID'],
                 Price: item['Price Each']
             },
-            $inc : {Quantity :1}//{Quantity : item.quantity}
+            $inc : {Quantity : item.Quantity}
         });
     });
     bulk.execute(function (err, result) {

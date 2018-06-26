@@ -4,7 +4,7 @@ var InventoryCardSchema = new mongoose.Schema({
   Quantity: {type: Number, default: 0},
   Name: String,
   SetCode: String,
-  GathereID: Number,
+  GathererID: Number,
   Type: String,
   Price: Number,
   Decks: Array
