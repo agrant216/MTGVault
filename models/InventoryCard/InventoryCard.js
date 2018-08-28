@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');  
+var mongoose = require('mongoose');
+
 var InventoryCardSchema = new mongoose.Schema({  
   UserID: {type: String, default: '-1'},
   Quantity: {type: Number, default: 0},
@@ -7,7 +8,23 @@ var InventoryCardSchema = new mongoose.Schema({
   GathererID: Number,
   Type: String,
   Price: Number,
-  Decks: Array
+  Details: {
+      layout: String,
+      name: String,
+      manaCost: String,
+      cmc: Number,
+      colors: Array,
+      type: String,
+      types: Array,
+      subtypes: Array,
+      text: String,
+      power: String,
+      toughness:String,
+      imageName:String,
+      colorIdentity:Array
+  },
+  Decks: Array,
+  Locations: Array
 },
 { collection: 'Test_MTG' });
 //CREATE DETAIL ID TO FULL CARD FOR CMC, TYPE...

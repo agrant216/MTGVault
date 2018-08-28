@@ -6,19 +6,21 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 var InventoryCard = require('./InventoryCard');
+var CardDetails = require('../../utility/AllCards.json')
 
 // ADD LIST OF CARDS
 router.post('/add', function(req,res) {
     var bulk = InventoryCard.collection.initializeUnorderedBulkOp();
     req.body.forEach(item => {
-        bulk.find({Name:item.name,GathererID:item['External ID']})
+        bulk.find({Name:item.Name,GathererID:item['External ID']})
         .upsert()
         .updateOne({
             $set: {
                 Name : item.Name,
                 SetCode : item.Set,
                 GathererID : item['External ID'],
-                Price: item['Price Each']
+                Price: item['Price Each'],
+                Details: ((CardDetails[item.Name]) ? CardDetails[item.Name] : {} )
             },
             $inc : {Quantity : item.Quantity}
         });
